@@ -12,15 +12,15 @@ PoliciesServiceApi policiesServiceApi = client.getPoliciesServiceApi();
 
 ## Methods
 
-* [Policies Service List Policies](../../doc/controllers/policies-service.md#policies-service-list-policies)
-* [Policies Service List Policy Rules](../../doc/controllers/policies-service.md#policies-service-list-policy-rules)
-* [Policies Service Update Policy](../../doc/controllers/policies-service.md#policies-service-update-policy)
+* [List Policies](../../doc/controllers/policies-service.md#list-policies)
+* [List Policy Rules](../../doc/controllers/policies-service.md#list-policy-rules)
+* [Update Policy](../../doc/controllers/policies-service.md#update-policy)
 
 
-# Policies Service List Policies
+# List Policies
 
 ```java
-CompletableFuture<ApiResponse<ProtosOpenapiV1ListPoliciesResponse>> policiesServiceListPoliciesAsync(
+CompletableFuture<ApiResponse<ProtosOpenapiV1ListPoliciesResponse>> listPoliciesAsync(
     final String deploymentId)
 ```
 
@@ -45,7 +45,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```java
 String deploymentId = "123";
 
-policiesServiceApi.policiesServiceListPoliciesAsync(deploymentId).thenAccept(result -> {
+policiesServiceApi.listPoliciesAsync(deploymentId).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {
@@ -56,10 +56,10 @@ policiesServiceApi.policiesServiceListPoliciesAsync(deploymentId).thenAccept(res
 ```
 
 
-# Policies Service List Policy Rules
+# List Policy Rules
 
 ```java
-CompletableFuture<ApiResponse<ProtosOpenapiV1ListPolicyRulesResponse>> policiesServiceListPolicyRulesAsync(
+CompletableFuture<ApiResponse<ProtosOpenapiV1ListPolicyRulesResponse>> listPolicyRulesAsync(
     final String deploymentId,
     final String policyId,
     final String cursor,
@@ -91,7 +91,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 String deploymentId = "123";
 String policyId = "456";
 
-policiesServiceApi.policiesServiceListPolicyRulesAsync(deploymentId, policyId, null, null).thenAccept(result -> {
+policiesServiceApi.listPolicyRulesAsync(deploymentId, policyId, null, null).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {
@@ -102,10 +102,10 @@ policiesServiceApi.policiesServiceListPolicyRulesAsync(deploymentId, policyId, n
 ```
 
 
-# Policies Service Update Policy
+# Update Policy
 
 ```java
-CompletableFuture<ApiResponse<ProtosOpenapiV1UpdatePolicyResponse>> policiesServiceUpdatePolicyAsync(
+CompletableFuture<ApiResponse<ProtosOpenapiV1UpdatePolicyResponse>> updatePolicyAsync(
     final String deploymentId,
     final String policyId,
     final UpdatePolicyRequest body)
@@ -142,7 +142,7 @@ UpdatePolicyRequest body = new UpdatePolicyRequest.Builder(
 )
 .build();
 
-policiesServiceApi.policiesServiceUpdatePolicyAsync(deploymentId, policyId, body).thenAccept(result -> {
+policiesServiceApi.updatePolicyAsync(deploymentId, policyId, body).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {

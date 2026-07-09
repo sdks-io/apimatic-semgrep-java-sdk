@@ -11,14 +11,14 @@ DeploymentsServiceApi deploymentsServiceApi = client.getDeploymentsServiceApi();
 `DeploymentsServiceApi`
 
 
-# Deployments Service List Deployments
+# List Deployments
 
 Request the deployments your auth can access.
 
 Currently available auth scope does not extend over more than one deployment. This endpoint returns the single deployment your token can access. The endpoint additionally returns links to related resources available on this API.
 
 ```java
-CompletableFuture<ApiResponse<ProtosOpenapiV1ListDeploymentsResponse>> deploymentsServiceListDeploymentsAsync()
+CompletableFuture<ApiResponse<ProtosOpenapiV1ListDeploymentsResponse>> listDeploymentsAsync()
 ```
 
 ## Authentication
@@ -34,7 +34,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ## Example Usage
 
 ```java
-deploymentsServiceApi.deploymentsServiceListDeploymentsAsync().thenAccept(result -> {
+deploymentsServiceApi.listDeploymentsAsync().thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {

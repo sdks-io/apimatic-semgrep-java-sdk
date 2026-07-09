@@ -12,16 +12,16 @@ ScansServiceApi scansServiceApi = client.getScansServiceApi();
 
 ## Methods
 
-* [Scans Service Get Scan](../../doc/controllers/scans-service.md#scans-service-get-scan)
-* [Scans Service Search Scans](../../doc/controllers/scans-service.md#scans-service-search-scans)
+* [Get Scan](../../doc/controllers/scans-service.md#get-scan)
+* [Search Scans](../../doc/controllers/scans-service.md#search-scans)
 
 
-# Scans Service Get Scan
+# Get Scan
 
 Request the details of a scan including the associated deployment, repository, and commit information.
 
 ```java
-CompletableFuture<ApiResponse<ProtosOpenapiV1GetScanResponse>> scansServiceGetScanAsync(
+CompletableFuture<ApiResponse<ProtosOpenapiV1GetScanResponse>> getScanAsync(
     final String deploymentId,
     final String scanId)
 ```
@@ -49,7 +49,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 String deploymentId = "123";
 String scanId = "456";
 
-scansServiceApi.scansServiceGetScanAsync(deploymentId, scanId).thenAccept(result -> {
+scansServiceApi.getScanAsync(deploymentId, scanId).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {
@@ -60,12 +60,12 @@ scansServiceApi.scansServiceGetScanAsync(deploymentId, scanId).thenAccept(result
 ```
 
 
-# Scans Service Search Scans
+# Search Scans
 
 List the scans associated with a particular repository over the past 30 days.
 
 ```java
-CompletableFuture<ApiResponse<ProtosOpenapiV1SearchScansResponse>> scansServiceSearchScansAsync(
+CompletableFuture<ApiResponse<ProtosOpenapiV1SearchScansResponse>> searchScansAsync(
     final String deploymentId,
     final SearchScansRequest body)
 ```
@@ -96,7 +96,7 @@ SearchScansRequest body = new SearchScansRequest.Builder(
 )
 .build();
 
-scansServiceApi.scansServiceSearchScansAsync(deploymentId, body).thenAccept(result -> {
+scansServiceApi.searchScansAsync(deploymentId, body).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {

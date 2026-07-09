@@ -41,28 +41,28 @@ public final class PoliciesServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<ProtosOpenapiV1ListPoliciesResponse> policiesServiceListPolicies(
+    public ApiResponse<ProtosOpenapiV1ListPoliciesResponse> listPolicies(
             final String deploymentId) throws ApiException, IOException {
-        return preparePoliciesServiceListPoliciesRequest(deploymentId).execute();
+        return prepareListPoliciesRequest(deploymentId).execute();
     }
 
     /**
      * @param  deploymentId  Required parameter:
      * @return    Returns the ProtosOpenapiV1ListPoliciesResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<ProtosOpenapiV1ListPoliciesResponse>> policiesServiceListPoliciesAsync(
+    public CompletableFuture<ApiResponse<ProtosOpenapiV1ListPoliciesResponse>> listPoliciesAsync(
             final String deploymentId) {
         try {
-            return preparePoliciesServiceListPoliciesRequest(deploymentId).executeAsync();
+            return prepareListPoliciesRequest(deploymentId).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for policiesServiceListPolicies.
+     * Builds the ApiCall object for listPolicies.
      */
-    private ApiCall<ApiResponse<ProtosOpenapiV1ListPoliciesResponse>, ApiException> preparePoliciesServiceListPoliciesRequest(
+    private ApiCall<ApiResponse<ProtosOpenapiV1ListPoliciesResponse>, ApiException> prepareListPoliciesRequest(
             final String deploymentId) {
         return new ApiCall.Builder<ApiResponse<ProtosOpenapiV1ListPoliciesResponse>, ApiException>()
                 .globalConfig(getGlobalConfiguration())
@@ -93,13 +93,12 @@ public final class PoliciesServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<ProtosOpenapiV1ListPolicyRulesResponse> policiesServiceListPolicyRules(
+    public ApiResponse<ProtosOpenapiV1ListPolicyRulesResponse> listPolicyRules(
             final String deploymentId,
             final String policyId,
             final String cursor,
             final Long limit) throws ApiException, IOException {
-        return preparePoliciesServiceListPolicyRulesRequest(deploymentId, policyId, cursor,
-                limit).execute();
+        return prepareListPolicyRulesRequest(deploymentId, policyId, cursor, limit).execute();
     }
 
     /**
@@ -109,23 +108,22 @@ public final class PoliciesServiceApi extends BaseApi {
      * @param  limit  Optional parameter:
      * @return    Returns the ProtosOpenapiV1ListPolicyRulesResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<ProtosOpenapiV1ListPolicyRulesResponse>> policiesServiceListPolicyRulesAsync(
+    public CompletableFuture<ApiResponse<ProtosOpenapiV1ListPolicyRulesResponse>> listPolicyRulesAsync(
             final String deploymentId,
             final String policyId,
             final String cursor,
             final Long limit) {
         try {
-            return preparePoliciesServiceListPolicyRulesRequest(deploymentId, policyId, cursor,
-            limit).executeAsync();
+            return prepareListPolicyRulesRequest(deploymentId, policyId, cursor, limit).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for policiesServiceListPolicyRules.
+     * Builds the ApiCall object for listPolicyRules.
      */
-    private ApiCall<ApiResponse<ProtosOpenapiV1ListPolicyRulesResponse>, ApiException> preparePoliciesServiceListPolicyRulesRequest(
+    private ApiCall<ApiResponse<ProtosOpenapiV1ListPolicyRulesResponse>, ApiException> prepareListPolicyRulesRequest(
             final String deploymentId,
             final String policyId,
             final String cursor,
@@ -164,11 +162,11 @@ public final class PoliciesServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<ProtosOpenapiV1UpdatePolicyResponse> policiesServiceUpdatePolicy(
+    public ApiResponse<ProtosOpenapiV1UpdatePolicyResponse> updatePolicy(
             final String deploymentId,
             final String policyId,
             final UpdatePolicyRequest body) throws ApiException, IOException {
-        return preparePoliciesServiceUpdatePolicyRequest(deploymentId, policyId, body).execute();
+        return prepareUpdatePolicyRequest(deploymentId, policyId, body).execute();
     }
 
     /**
@@ -177,21 +175,21 @@ public final class PoliciesServiceApi extends BaseApi {
      * @param  body  Required parameter:
      * @return    Returns the ProtosOpenapiV1UpdatePolicyResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<ProtosOpenapiV1UpdatePolicyResponse>> policiesServiceUpdatePolicyAsync(
+    public CompletableFuture<ApiResponse<ProtosOpenapiV1UpdatePolicyResponse>> updatePolicyAsync(
             final String deploymentId,
             final String policyId,
             final UpdatePolicyRequest body) {
         try {
-            return preparePoliciesServiceUpdatePolicyRequest(deploymentId, policyId, body).executeAsync();
+            return prepareUpdatePolicyRequest(deploymentId, policyId, body).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for policiesServiceUpdatePolicy.
+     * Builds the ApiCall object for updatePolicy.
      */
-    private ApiCall<ApiResponse<ProtosOpenapiV1UpdatePolicyResponse>, ApiException> preparePoliciesServiceUpdatePolicyRequest(
+    private ApiCall<ApiResponse<ProtosOpenapiV1UpdatePolicyResponse>, ApiException> prepareUpdatePolicyRequest(
             final String deploymentId,
             final String policyId,
             final UpdatePolicyRequest body) {

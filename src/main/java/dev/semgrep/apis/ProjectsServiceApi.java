@@ -52,11 +52,11 @@ public final class ProjectsServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<ListProjectsResponse> projectsServiceListProjects(
+    public ApiResponse<ListProjectsResponse> listProjects(
             final String deploymentSlug,
             final Long page,
             final Long pageSize) throws ApiException, IOException {
-        return prepareProjectsServiceListProjectsRequest(deploymentSlug, page, pageSize).execute();
+        return prepareListProjectsRequest(deploymentSlug, page, pageSize).execute();
     }
 
     /**
@@ -67,21 +67,21 @@ public final class ProjectsServiceApi extends BaseApi {
      * @param  pageSize  Optional parameter: Example: 100
      * @return    Returns the ListProjectsResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<ListProjectsResponse>> projectsServiceListProjectsAsync(
+    public CompletableFuture<ApiResponse<ListProjectsResponse>> listProjectsAsync(
             final String deploymentSlug,
             final Long page,
             final Long pageSize) {
         try {
-            return prepareProjectsServiceListProjectsRequest(deploymentSlug, page, pageSize).executeAsync();
+            return prepareListProjectsRequest(deploymentSlug, page, pageSize).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for projectsServiceListProjects.
+     * Builds the ApiCall object for listProjects.
      */
-    private ApiCall<ApiResponse<ListProjectsResponse>, ApiException> prepareProjectsServiceListProjectsRequest(
+    private ApiCall<ApiResponse<ListProjectsResponse>, ApiException> prepareListProjectsRequest(
             final String deploymentSlug,
             final Long page,
             final Long pageSize) {
@@ -118,10 +118,10 @@ public final class ProjectsServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<DeleteProjectResponse> projectsServiceDeleteProject(
+    public ApiResponse<DeleteProjectResponse> deleteProject(
             final String deploymentSlug,
             final String projectName) throws ApiException, IOException {
-        return prepareProjectsServiceDeleteProjectRequest(deploymentSlug, projectName).execute();
+        return prepareDeleteProjectRequest(deploymentSlug, projectName).execute();
     }
 
     /**
@@ -131,20 +131,20 @@ public final class ProjectsServiceApi extends BaseApi {
      * @param  projectName  Required parameter:
      * @return    Returns the DeleteProjectResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<DeleteProjectResponse>> projectsServiceDeleteProjectAsync(
+    public CompletableFuture<ApiResponse<DeleteProjectResponse>> deleteProjectAsync(
             final String deploymentSlug,
             final String projectName) {
         try {
-            return prepareProjectsServiceDeleteProjectRequest(deploymentSlug, projectName).executeAsync();
+            return prepareDeleteProjectRequest(deploymentSlug, projectName).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for projectsServiceDeleteProject.
+     * Builds the ApiCall object for deleteProject.
      */
-    private ApiCall<ApiResponse<DeleteProjectResponse>, ApiException> prepareProjectsServiceDeleteProjectRequest(
+    private ApiCall<ApiResponse<DeleteProjectResponse>, ApiException> prepareDeleteProjectRequest(
             final String deploymentSlug,
             final String projectName) {
         return new ApiCall.Builder<ApiResponse<DeleteProjectResponse>, ApiException>()
@@ -177,10 +177,10 @@ public final class ProjectsServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<GetProjectResponse> projectsServiceGetProject(
+    public ApiResponse<GetProjectResponse> getProject(
             final String deploymentSlug,
             final String projectName) throws ApiException, IOException {
-        return prepareProjectsServiceGetProjectRequest(deploymentSlug, projectName).execute();
+        return prepareGetProjectRequest(deploymentSlug, projectName).execute();
     }
 
     /**
@@ -189,20 +189,20 @@ public final class ProjectsServiceApi extends BaseApi {
      * @param  projectName  Required parameter:
      * @return    Returns the GetProjectResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<GetProjectResponse>> projectsServiceGetProjectAsync(
+    public CompletableFuture<ApiResponse<GetProjectResponse>> getProjectAsync(
             final String deploymentSlug,
             final String projectName) {
         try {
-            return prepareProjectsServiceGetProjectRequest(deploymentSlug, projectName).executeAsync();
+            return prepareGetProjectRequest(deploymentSlug, projectName).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for projectsServiceGetProject.
+     * Builds the ApiCall object for getProject.
      */
-    private ApiCall<ApiResponse<GetProjectResponse>, ApiException> prepareProjectsServiceGetProjectRequest(
+    private ApiCall<ApiResponse<GetProjectResponse>, ApiException> prepareGetProjectRequest(
             final String deploymentSlug,
             final String projectName) {
         return new ApiCall.Builder<ApiResponse<GetProjectResponse>, ApiException>()
@@ -237,12 +237,11 @@ public final class ProjectsServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<UpdateProjectResponse> projectsServiceUpdateProject(
+    public ApiResponse<UpdateProjectResponse> updateProject(
             final String deploymentSlug,
             final String projectName,
             final UpdateProjectRequest body) throws ApiException, IOException {
-        return prepareProjectsServiceUpdateProjectRequest(deploymentSlug, projectName,
-                body).execute();
+        return prepareUpdateProjectRequest(deploymentSlug, projectName, body).execute();
     }
 
     /**
@@ -253,22 +252,21 @@ public final class ProjectsServiceApi extends BaseApi {
      * @param  body  Required parameter:
      * @return    Returns the UpdateProjectResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<UpdateProjectResponse>> projectsServiceUpdateProjectAsync(
+    public CompletableFuture<ApiResponse<UpdateProjectResponse>> updateProjectAsync(
             final String deploymentSlug,
             final String projectName,
             final UpdateProjectRequest body) {
         try {
-            return prepareProjectsServiceUpdateProjectRequest(deploymentSlug, projectName,
-            body).executeAsync();
+            return prepareUpdateProjectRequest(deploymentSlug, projectName, body).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for projectsServiceUpdateProject.
+     * Builds the ApiCall object for updateProject.
      */
-    private ApiCall<ApiResponse<UpdateProjectResponse>, ApiException> prepareProjectsServiceUpdateProjectRequest(
+    private ApiCall<ApiResponse<UpdateProjectResponse>, ApiException> prepareUpdateProjectRequest(
             final String deploymentSlug,
             final String projectName,
             final UpdateProjectRequest body) {
@@ -308,12 +306,11 @@ public final class ProjectsServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<ToggleProjectManagedScanResponse> projectsServiceToggleProjectManagedScan(
+    public ApiResponse<ToggleProjectManagedScanResponse> toggleProjectManagedScan(
             final String deploymentSlug,
             final String projectName,
             final ToggleProjectManagedScanRequest body) throws ApiException, IOException {
-        return prepareProjectsServiceToggleProjectManagedScanRequest(deploymentSlug, projectName,
-                body).execute();
+        return prepareToggleProjectManagedScanRequest(deploymentSlug, projectName, body).execute();
     }
 
     /**
@@ -324,22 +321,21 @@ public final class ProjectsServiceApi extends BaseApi {
      * @param  body  Required parameter:
      * @return    Returns the ToggleProjectManagedScanResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<ToggleProjectManagedScanResponse>> projectsServiceToggleProjectManagedScanAsync(
+    public CompletableFuture<ApiResponse<ToggleProjectManagedScanResponse>> toggleProjectManagedScanAsync(
             final String deploymentSlug,
             final String projectName,
             final ToggleProjectManagedScanRequest body) {
         try {
-            return prepareProjectsServiceToggleProjectManagedScanRequest(deploymentSlug, projectName,
-            body).executeAsync();
+            return prepareToggleProjectManagedScanRequest(deploymentSlug, projectName, body).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for projectsServiceToggleProjectManagedScan.
+     * Builds the ApiCall object for toggleProjectManagedScan.
      */
-    private ApiCall<ApiResponse<ToggleProjectManagedScanResponse>, ApiException> prepareProjectsServiceToggleProjectManagedScanRequest(
+    private ApiCall<ApiResponse<ToggleProjectManagedScanResponse>, ApiException> prepareToggleProjectManagedScanRequest(
             final String deploymentSlug,
             final String projectName,
             final ToggleProjectManagedScanRequest body) {
@@ -380,12 +376,11 @@ public final class ProjectsServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<DeleteProjectTagsResponse> projectsServiceDeleteProjectTags(
+    public ApiResponse<DeleteProjectTagsResponse> deleteProjectTags(
             final String deploymentSlug,
             final String projectName,
             final List<String> tags) throws ApiException, IOException {
-        return prepareProjectsServiceDeleteProjectTagsRequest(deploymentSlug, projectName,
-                tags).execute();
+        return prepareDeleteProjectTagsRequest(deploymentSlug, projectName, tags).execute();
     }
 
     /**
@@ -397,22 +392,21 @@ public final class ProjectsServiceApi extends BaseApi {
      * @param  tags  Optional parameter:
      * @return    Returns the DeleteProjectTagsResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<DeleteProjectTagsResponse>> projectsServiceDeleteProjectTagsAsync(
+    public CompletableFuture<ApiResponse<DeleteProjectTagsResponse>> deleteProjectTagsAsync(
             final String deploymentSlug,
             final String projectName,
             final List<String> tags) {
         try {
-            return prepareProjectsServiceDeleteProjectTagsRequest(deploymentSlug, projectName,
-            tags).executeAsync();
+            return prepareDeleteProjectTagsRequest(deploymentSlug, projectName, tags).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for projectsServiceDeleteProjectTags.
+     * Builds the ApiCall object for deleteProjectTags.
      */
-    private ApiCall<ApiResponse<DeleteProjectTagsResponse>, ApiException> prepareProjectsServiceDeleteProjectTagsRequest(
+    private ApiCall<ApiResponse<DeleteProjectTagsResponse>, ApiException> prepareDeleteProjectTagsRequest(
             final String deploymentSlug,
             final String projectName,
             final List<String> tags) {
@@ -451,12 +445,11 @@ public final class ProjectsServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<AddProjectTagsResponse> projectsServiceAddProjectTags(
+    public ApiResponse<AddProjectTagsResponse> addProjectTags(
             final String deploymentSlug,
             final String projectName,
             final AddProjectTagsRequest body) throws ApiException, IOException {
-        return prepareProjectsServiceAddProjectTagsRequest(deploymentSlug, projectName,
-                body).execute();
+        return prepareAddProjectTagsRequest(deploymentSlug, projectName, body).execute();
     }
 
     /**
@@ -468,22 +461,21 @@ public final class ProjectsServiceApi extends BaseApi {
      * @param  body  Required parameter:
      * @return    Returns the AddProjectTagsResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<AddProjectTagsResponse>> projectsServiceAddProjectTagsAsync(
+    public CompletableFuture<ApiResponse<AddProjectTagsResponse>> addProjectTagsAsync(
             final String deploymentSlug,
             final String projectName,
             final AddProjectTagsRequest body) {
         try {
-            return prepareProjectsServiceAddProjectTagsRequest(deploymentSlug, projectName,
-            body).executeAsync();
+            return prepareAddProjectTagsRequest(deploymentSlug, projectName, body).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for projectsServiceAddProjectTags.
+     * Builds the ApiCall object for addProjectTags.
      */
-    private ApiCall<ApiResponse<AddProjectTagsResponse>, ApiException> prepareProjectsServiceAddProjectTagsRequest(
+    private ApiCall<ApiResponse<AddProjectTagsResponse>, ApiException> prepareAddProjectTagsRequest(
             final String deploymentSlug,
             final String projectName,
             final AddProjectTagsRequest body) {

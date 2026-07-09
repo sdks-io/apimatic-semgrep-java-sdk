@@ -51,7 +51,7 @@ public final class SecretsServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<ProtosOpenapiV1ListSecretsPathResponse> secretsServiceListSecretsPath(
+    public ApiResponse<ProtosOpenapiV1ListSecretsPathResponse> listSecretsPath(
             final String deploymentId,
             final String cursor,
             final Long limit,
@@ -60,8 +60,8 @@ public final class SecretsServiceApi extends BaseApi {
             final Status8 status,
             final List<Severity5> severity,
             final List<String> repo) throws ApiException, IOException {
-        return prepareSecretsServiceListSecretsPathRequest(deploymentId, cursor, limit, since,
-                validationState, status, severity, repo).execute();
+        return prepareListSecretsPathRequest(deploymentId, cursor, limit, since, validationState,
+                status, severity, repo).execute();
     }
 
     /**
@@ -75,7 +75,7 @@ public final class SecretsServiceApi extends BaseApi {
      * @param  repo  Optional parameter:
      * @return    Returns the ProtosOpenapiV1ListSecretsPathResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<ProtosOpenapiV1ListSecretsPathResponse>> secretsServiceListSecretsPathAsync(
+    public CompletableFuture<ApiResponse<ProtosOpenapiV1ListSecretsPathResponse>> listSecretsPathAsync(
             final String deploymentId,
             final String cursor,
             final Long limit,
@@ -85,17 +85,17 @@ public final class SecretsServiceApi extends BaseApi {
             final List<Severity5> severity,
             final List<String> repo) {
         try {
-            return prepareSecretsServiceListSecretsPathRequest(deploymentId, cursor, limit, since,
-            validationState, status, severity, repo).executeAsync();
+            return prepareListSecretsPathRequest(deploymentId, cursor, limit, since, validationState,
+            status, severity, repo).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for secretsServiceListSecretsPath.
+     * Builds the ApiCall object for listSecretsPath.
      */
-    private ApiCall<ApiResponse<ProtosOpenapiV1ListSecretsPathResponse>, ApiException> prepareSecretsServiceListSecretsPathRequest(
+    private ApiCall<ApiResponse<ProtosOpenapiV1ListSecretsPathResponse>, ApiException> prepareListSecretsPathRequest(
             final String deploymentId,
             final String cursor,
             final Long limit,

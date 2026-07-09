@@ -40,8 +40,8 @@ public final class DeploymentsServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<ProtosOpenapiV1ListDeploymentsResponse> deploymentsServiceListDeployments() throws ApiException, IOException {
-        return prepareDeploymentsServiceListDeploymentsRequest().execute();
+    public ApiResponse<ProtosOpenapiV1ListDeploymentsResponse> listDeployments() throws ApiException, IOException {
+        return prepareListDeploymentsRequest().execute();
     }
 
     /**
@@ -50,18 +50,18 @@ public final class DeploymentsServiceApi extends BaseApi {
      * access. The endpoint additionally returns links to related resources available on this API.
      * @return    Returns the ProtosOpenapiV1ListDeploymentsResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<ProtosOpenapiV1ListDeploymentsResponse>> deploymentsServiceListDeploymentsAsync() {
+    public CompletableFuture<ApiResponse<ProtosOpenapiV1ListDeploymentsResponse>> listDeploymentsAsync() {
         try {
-            return prepareDeploymentsServiceListDeploymentsRequest().executeAsync();
+            return prepareListDeploymentsRequest().executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for deploymentsServiceListDeployments.
+     * Builds the ApiCall object for listDeployments.
      */
-    private ApiCall<ApiResponse<ProtosOpenapiV1ListDeploymentsResponse>, ApiException> prepareDeploymentsServiceListDeploymentsRequest() {
+    private ApiCall<ApiResponse<ProtosOpenapiV1ListDeploymentsResponse>, ApiException> prepareListDeploymentsRequest() {
         return new ApiCall.Builder<ApiResponse<ProtosOpenapiV1ListDeploymentsResponse>, ApiException>()
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder

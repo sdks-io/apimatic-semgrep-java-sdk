@@ -11,10 +11,10 @@ SecretsServiceApi secretsServiceApi = client.getSecretsServiceApi();
 `SecretsServiceApi`
 
 
-# Secrets Service List Secrets Path
+# List Secrets Path
 
 ```java
-CompletableFuture<ApiResponse<ProtosOpenapiV1ListSecretsPathResponse>> secretsServiceListSecretsPathAsync(
+CompletableFuture<ApiResponse<ProtosOpenapiV1ListSecretsPathResponse>> listSecretsPathAsync(
     final String deploymentId,
     final String cursor,
     final Long limit,
@@ -53,7 +53,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```java
 String deploymentId = "123";
 Status8 status = Status8.FINDING_STATUS_UNSPECIFIED;
-secretsServiceApi.secretsServiceListSecretsPathAsync(deploymentId, null, null, null, null, status, null, null).thenAccept(result -> {
+secretsServiceApi.listSecretsPathAsync(deploymentId, null, null, null, null, status, null, null).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {

@@ -47,10 +47,10 @@ public final class SupplyChainServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<ListDependenciesResponse> supplyChainServiceListDependencies(
+    public ApiResponse<ListDependenciesResponse> listDependencies(
             final String deploymentId,
             final ListDependenciesRequest body) throws ApiException, IOException {
-        return prepareSupplyChainServiceListDependenciesRequest(deploymentId, body).execute();
+        return prepareListDependenciesRequest(deploymentId, body).execute();
     }
 
     /**
@@ -58,20 +58,20 @@ public final class SupplyChainServiceApi extends BaseApi {
      * @param  body  Required parameter:
      * @return    Returns the ListDependenciesResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<ListDependenciesResponse>> supplyChainServiceListDependenciesAsync(
+    public CompletableFuture<ApiResponse<ListDependenciesResponse>> listDependenciesAsync(
             final String deploymentId,
             final ListDependenciesRequest body) {
         try {
-            return prepareSupplyChainServiceListDependenciesRequest(deploymentId, body).executeAsync();
+            return prepareListDependenciesRequest(deploymentId, body).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for supplyChainServiceListDependencies.
+     * Builds the ApiCall object for listDependencies.
      */
-    private ApiCall<ApiResponse<ListDependenciesResponse>, ApiException> prepareSupplyChainServiceListDependenciesRequest(
+    private ApiCall<ApiResponse<ListDependenciesResponse>, ApiException> prepareListDependenciesRequest(
             final String deploymentId,
             final ListDependenciesRequest body) {
         return new ApiCall.Builder<ApiResponse<ListDependenciesResponse>, ApiException>()
@@ -105,11 +105,10 @@ public final class SupplyChainServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<ListRepositoriesForDependenciesResponse> supplyChainServiceListRepositoriesForDependencies(
+    public ApiResponse<ListRepositoriesForDependenciesResponse> listRepositoriesForDependencies(
             final String deploymentId,
             final ListRepositoriesForDependenciesRequest body) throws ApiException, IOException {
-        return prepareSupplyChainServiceListRepositoriesForDependenciesRequest(deploymentId,
-                body).execute();
+        return prepareListRepositoriesForDependenciesRequest(deploymentId, body).execute();
     }
 
     /**
@@ -117,21 +116,20 @@ public final class SupplyChainServiceApi extends BaseApi {
      * @param  body  Required parameter:
      * @return    Returns the ListRepositoriesForDependenciesResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<ListRepositoriesForDependenciesResponse>> supplyChainServiceListRepositoriesForDependenciesAsync(
+    public CompletableFuture<ApiResponse<ListRepositoriesForDependenciesResponse>> listRepositoriesForDependenciesAsync(
             final String deploymentId,
             final ListRepositoriesForDependenciesRequest body) {
         try {
-            return prepareSupplyChainServiceListRepositoriesForDependenciesRequest(deploymentId,
-            body).executeAsync();
+            return prepareListRepositoriesForDependenciesRequest(deploymentId, body).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for supplyChainServiceListRepositoriesForDependencies.
+     * Builds the ApiCall object for listRepositoriesForDependencies.
      */
-    private ApiCall<ApiResponse<ListRepositoriesForDependenciesResponse>, ApiException> prepareSupplyChainServiceListRepositoriesForDependenciesRequest(
+    private ApiCall<ApiResponse<ListRepositoriesForDependenciesResponse>, ApiException> prepareListRepositoriesForDependenciesRequest(
             final String deploymentId,
             final ListRepositoriesForDependenciesRequest body) {
         return new ApiCall.Builder<ApiResponse<ListRepositoriesForDependenciesResponse>, ApiException>()
@@ -166,12 +164,12 @@ public final class SupplyChainServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<ListLockfilesForDependenciesResponse> supplyChainServiceListLockfilesForDependencies(
+    public ApiResponse<ListLockfilesForDependenciesResponse> listLockfilesForDependencies(
             final String deploymentId,
             final String repositoryId,
             final ListLockfilesForDependenciesRequest body) throws ApiException, IOException {
-        return prepareSupplyChainServiceListLockfilesForDependenciesRequest(deploymentId,
-                repositoryId, body).execute();
+        return prepareListLockfilesForDependenciesRequest(deploymentId, repositoryId,
+                body).execute();
     }
 
     /**
@@ -180,12 +178,12 @@ public final class SupplyChainServiceApi extends BaseApi {
      * @param  body  Required parameter:
      * @return    Returns the ListLockfilesForDependenciesResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<ListLockfilesForDependenciesResponse>> supplyChainServiceListLockfilesForDependenciesAsync(
+    public CompletableFuture<ApiResponse<ListLockfilesForDependenciesResponse>> listLockfilesForDependenciesAsync(
             final String deploymentId,
             final String repositoryId,
             final ListLockfilesForDependenciesRequest body) {
         try {
-            return prepareSupplyChainServiceListLockfilesForDependenciesRequest(deploymentId, repositoryId,
+            return prepareListLockfilesForDependenciesRequest(deploymentId, repositoryId,
             body).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
@@ -193,9 +191,9 @@ public final class SupplyChainServiceApi extends BaseApi {
     }
 
     /**
-     * Builds the ApiCall object for supplyChainServiceListLockfilesForDependencies.
+     * Builds the ApiCall object for listLockfilesForDependencies.
      */
-    private ApiCall<ApiResponse<ListLockfilesForDependenciesResponse>, ApiException> prepareSupplyChainServiceListLockfilesForDependenciesRequest(
+    private ApiCall<ApiResponse<ListLockfilesForDependenciesResponse>, ApiException> prepareListLockfilesForDependenciesRequest(
             final String deploymentId,
             final String repositoryId,
             final ListLockfilesForDependenciesRequest body) {
@@ -232,10 +230,10 @@ public final class SupplyChainServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<CreateSbomExportResponse> supplyChainServiceCreateSbomExport(
+    public ApiResponse<CreateSbomExportResponse> createSbomExport(
             final String deploymentId,
             final CreateSbomExportRequest body) throws ApiException, IOException {
-        return prepareSupplyChainServiceCreateSbomExportRequest(deploymentId, body).execute();
+        return prepareCreateSbomExportRequest(deploymentId, body).execute();
     }
 
     /**
@@ -243,20 +241,20 @@ public final class SupplyChainServiceApi extends BaseApi {
      * @param  body  Required parameter:
      * @return    Returns the CreateSbomExportResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<CreateSbomExportResponse>> supplyChainServiceCreateSbomExportAsync(
+    public CompletableFuture<ApiResponse<CreateSbomExportResponse>> createSbomExportAsync(
             final String deploymentId,
             final CreateSbomExportRequest body) {
         try {
-            return prepareSupplyChainServiceCreateSbomExportRequest(deploymentId, body).executeAsync();
+            return prepareCreateSbomExportRequest(deploymentId, body).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for supplyChainServiceCreateSbomExport.
+     * Builds the ApiCall object for createSbomExport.
      */
-    private ApiCall<ApiResponse<CreateSbomExportResponse>, ApiException> prepareSupplyChainServiceCreateSbomExportRequest(
+    private ApiCall<ApiResponse<CreateSbomExportResponse>, ApiException> prepareCreateSbomExportRequest(
             final String deploymentId,
             final CreateSbomExportRequest body) {
         return new ApiCall.Builder<ApiResponse<CreateSbomExportResponse>, ApiException>()
@@ -290,10 +288,10 @@ public final class SupplyChainServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<GetSbomExportResponse> supplyChainServiceGetSbomExport(
+    public ApiResponse<GetSbomExportResponse> getSbomExport(
             final String deploymentId,
             final String taskToken) throws ApiException, IOException {
-        return prepareSupplyChainServiceGetSbomExportRequest(deploymentId, taskToken).execute();
+        return prepareGetSbomExportRequest(deploymentId, taskToken).execute();
     }
 
     /**
@@ -301,20 +299,20 @@ public final class SupplyChainServiceApi extends BaseApi {
      * @param  taskToken  Required parameter:
      * @return    Returns the GetSbomExportResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<GetSbomExportResponse>> supplyChainServiceGetSbomExportAsync(
+    public CompletableFuture<ApiResponse<GetSbomExportResponse>> getSbomExportAsync(
             final String deploymentId,
             final String taskToken) {
         try {
-            return prepareSupplyChainServiceGetSbomExportRequest(deploymentId, taskToken).executeAsync();
+            return prepareGetSbomExportRequest(deploymentId, taskToken).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for supplyChainServiceGetSbomExport.
+     * Builds the ApiCall object for getSbomExport.
      */
-    private ApiCall<ApiResponse<GetSbomExportResponse>, ApiException> prepareSupplyChainServiceGetSbomExportRequest(
+    private ApiCall<ApiResponse<GetSbomExportResponse>, ApiException> prepareGetSbomExportRequest(
             final String deploymentId,
             final String taskToken) {
         return new ApiCall.Builder<ApiResponse<GetSbomExportResponse>, ApiException>()

@@ -10,21 +10,21 @@ ProjectsServiceApi projectsServiceApi = client.getProjectsServiceApi();
 
 ## Methods
 
-* [Projects Service List Projects](../../doc/controllers/projects-service.md#projects-service-list-projects)
-* [Projects Service Delete Project](../../doc/controllers/projects-service.md#projects-service-delete-project)
-* [Projects Service Get Project](../../doc/controllers/projects-service.md#projects-service-get-project)
-* [Projects Service Update Project](../../doc/controllers/projects-service.md#projects-service-update-project)
-* [Projects Service Toggle Project Managed Scan](../../doc/controllers/projects-service.md#projects-service-toggle-project-managed-scan)
-* [Projects Service Delete Project Tags](../../doc/controllers/projects-service.md#projects-service-delete-project-tags)
-* [Projects Service Add Project Tags](../../doc/controllers/projects-service.md#projects-service-add-project-tags)
+* [List Projects](../../doc/controllers/projects-service.md#list-projects)
+* [Delete Project](../../doc/controllers/projects-service.md#delete-project)
+* [Get Project](../../doc/controllers/projects-service.md#get-project)
+* [Update Project](../../doc/controllers/projects-service.md#update-project)
+* [Toggle Project Managed Scan](../../doc/controllers/projects-service.md#toggle-project-managed-scan)
+* [Delete Project Tags](../../doc/controllers/projects-service.md#delete-project-tags)
+* [Add Project Tags](../../doc/controllers/projects-service.md#add-project-tags)
 
 
-# Projects Service List Projects
+# List Projects
 
 Request the list of projects that have been scanned or onboarded to Managed Scans. Does not return archived repositories. Returns 100 projects per page by default.
 
 ```java
-CompletableFuture<ApiResponse<ListProjectsResponse>> projectsServiceListProjectsAsync(
+CompletableFuture<ApiResponse<ListProjectsResponse>> listProjectsAsync(
     final String deploymentSlug,
     final Long page,
     final Long pageSize)
@@ -55,7 +55,7 @@ String deploymentSlug = "your-deployment";
 Long page = 1L;
 Long pageSize = 100L;
 
-projectsServiceApi.projectsServiceListProjectsAsync(deploymentSlug, page, pageSize).thenAccept(result -> {
+projectsServiceApi.listProjectsAsync(deploymentSlug, page, pageSize).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {
@@ -66,12 +66,12 @@ projectsServiceApi.projectsServiceListProjectsAsync(deploymentSlug, page, pageSi
 ```
 
 
-# Projects Service Delete Project
+# Delete Project
 
 Delete a project for a deployment you have access to. This will also delete all of the associated findings.
 
 ```java
-CompletableFuture<ApiResponse<DeleteProjectResponse>> projectsServiceDeleteProjectAsync(
+CompletableFuture<ApiResponse<DeleteProjectResponse>> deleteProjectAsync(
     final String deploymentSlug,
     final String projectName)
 ```
@@ -99,7 +99,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 String deploymentSlug = "your-deployment";
 String projectName = "organization/project";
 
-projectsServiceApi.projectsServiceDeleteProjectAsync(deploymentSlug, projectName).thenAccept(result -> {
+projectsServiceApi.deleteProjectAsync(deploymentSlug, projectName).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {
@@ -110,12 +110,12 @@ projectsServiceApi.projectsServiceDeleteProjectAsync(deploymentSlug, projectName
 ```
 
 
-# Projects Service Get Project
+# Get Project
 
 Retrieve details for a single project associated with a deployment that you have access to.
 
 ```java
-CompletableFuture<ApiResponse<GetProjectResponse>> projectsServiceGetProjectAsync(
+CompletableFuture<ApiResponse<GetProjectResponse>> getProjectAsync(
     final String deploymentSlug,
     final String projectName)
 ```
@@ -143,7 +143,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 String deploymentSlug = "your-deployment";
 String projectName = "organization/project";
 
-projectsServiceApi.projectsServiceGetProjectAsync(deploymentSlug, projectName).thenAccept(result -> {
+projectsServiceApi.getProjectAsync(deploymentSlug, projectName).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {
@@ -154,14 +154,14 @@ projectsServiceApi.projectsServiceGetProjectAsync(deploymentSlug, projectName).t
 ```
 
 
-# Projects Service Update Project
+# Update Project
 
 Update attributes for the project using the value passed in to the request body.
 
 Note: The only attribute that is supported as of January 2023 is `tags`.
 
 ```java
-CompletableFuture<ApiResponse<UpdateProjectResponse>> projectsServiceUpdateProjectAsync(
+CompletableFuture<ApiResponse<UpdateProjectResponse>> updateProjectAsync(
     final String deploymentSlug,
     final String projectName,
     final UpdateProjectRequest body)
@@ -200,7 +200,7 @@ UpdateProjectRequest body = new UpdateProjectRequest.Builder(
     ))
 .build();
 
-projectsServiceApi.projectsServiceUpdateProjectAsync(deploymentSlug, projectName, body).thenAccept(result -> {
+projectsServiceApi.updateProjectAsync(deploymentSlug, projectName, body).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {
@@ -211,14 +211,14 @@ projectsServiceApi.projectsServiceUpdateProjectAsync(deploymentSlug, projectName
 ```
 
 
-# Projects Service Toggle Project Managed Scan
+# Toggle Project Managed Scan
 
 Enable or disable
 [Semgrep Managed Scans](/docs/deployment/managed-scanning/overview)
 for a project.
 
 ```java
-CompletableFuture<ApiResponse<ToggleProjectManagedScanResponse>> projectsServiceToggleProjectManagedScanAsync(
+CompletableFuture<ApiResponse<ToggleProjectManagedScanResponse>> toggleProjectManagedScanAsync(
     final String deploymentSlug,
     final String projectName,
     final ToggleProjectManagedScanRequest body)
@@ -253,7 +253,7 @@ ToggleProjectManagedScanRequest body = new ToggleProjectManagedScanRequest.Build
 )
 .build();
 
-projectsServiceApi.projectsServiceToggleProjectManagedScanAsync(deploymentSlug, projectName, body).thenAccept(result -> {
+projectsServiceApi.toggleProjectManagedScanAsync(deploymentSlug, projectName, body).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {
@@ -264,7 +264,7 @@ projectsServiceApi.projectsServiceToggleProjectManagedScanAsync(deploymentSlug, 
 ```
 
 
-# Projects Service Delete Project Tags
+# Delete Project Tags
 
 Remove tags from a project for a deployment you have access to.
 
@@ -273,7 +273,7 @@ them from the requested project. Any other projects associated with the requeste
 tag will remain unaffected.
 
 ```java
-CompletableFuture<ApiResponse<DeleteProjectTagsResponse>> projectsServiceDeleteProjectTagsAsync(
+CompletableFuture<ApiResponse<DeleteProjectTagsResponse>> deleteProjectTagsAsync(
     final String deploymentSlug,
     final String projectName,
     final List<String> tags)
@@ -306,7 +306,7 @@ List<String> tags = Arrays.asList(
     "tag"
 );
 
-projectsServiceApi.projectsServiceDeleteProjectTagsAsync(deploymentSlug, projectName, tags).thenAccept(result -> {
+projectsServiceApi.deleteProjectTagsAsync(deploymentSlug, projectName, tags).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {
@@ -317,14 +317,14 @@ projectsServiceApi.projectsServiceDeleteProjectTagsAsync(deploymentSlug, project
 ```
 
 
-# Projects Service Add Project Tags
+# Add Project Tags
 
 Add tags to a project for a deployment you have access to.
 
 Any project tags that do not already exist for the deployment will be created automatically and associated with the project.
 
 ```java
-CompletableFuture<ApiResponse<AddProjectTagsResponse>> projectsServiceAddProjectTagsAsync(
+CompletableFuture<ApiResponse<AddProjectTagsResponse>> addProjectTagsAsync(
     final String deploymentSlug,
     final String projectName,
     final AddProjectTagsRequest body)
@@ -362,7 +362,7 @@ AddProjectTagsRequest body = new AddProjectTagsRequest.Builder(
     ))
 .build();
 
-projectsServiceApi.projectsServiceAddProjectTagsAsync(deploymentSlug, projectName, body).thenAccept(result -> {
+projectsServiceApi.addProjectTagsAsync(deploymentSlug, projectName, body).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {

@@ -44,8 +44,8 @@ public final class MiscServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<ProtosOpenapiV1GetBootstrapSmsVpcResponse> miscServiceGetBootstrapSmsVpc() throws ApiException, IOException {
-        return prepareMiscServiceGetBootstrapSmsVpcRequest().execute();
+    public ApiResponse<ProtosOpenapiV1GetBootstrapSmsVpcResponse> getBootstrapSmsVpc() throws ApiException, IOException {
+        return prepareGetBootstrapSmsVpcRequest().execute();
     }
 
     /**
@@ -58,18 +58,18 @@ public final class MiscServiceApi extends BaseApi {
      * https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-formats.html.
      * @return    Returns the ProtosOpenapiV1GetBootstrapSmsVpcResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<ProtosOpenapiV1GetBootstrapSmsVpcResponse>> miscServiceGetBootstrapSmsVpcAsync() {
+    public CompletableFuture<ApiResponse<ProtosOpenapiV1GetBootstrapSmsVpcResponse>> getBootstrapSmsVpcAsync() {
         try {
-            return prepareMiscServiceGetBootstrapSmsVpcRequest().executeAsync();
+            return prepareGetBootstrapSmsVpcRequest().executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for miscServiceGetBootstrapSmsVpc.
+     * Builds the ApiCall object for getBootstrapSmsVpc.
      */
-    private ApiCall<ApiResponse<ProtosOpenapiV1GetBootstrapSmsVpcResponse>, ApiException> prepareMiscServiceGetBootstrapSmsVpcRequest() {
+    private ApiCall<ApiResponse<ProtosOpenapiV1GetBootstrapSmsVpcResponse>, ApiException> prepareGetBootstrapSmsVpcRequest() {
         return new ApiCall.Builder<ApiResponse<ProtosOpenapiV1GetBootstrapSmsVpcResponse>, ApiException>()
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder
@@ -92,26 +92,26 @@ public final class MiscServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<Object> miscServicePing() throws ApiException, IOException {
-        return prepareMiscServicePingRequest().execute();
+    public ApiResponse<Object> ping() throws ApiException, IOException {
+        return preparePingRequest().execute();
     }
 
     /**
      * Use to ping the server and assert liveness.
      * @return    Returns the Object wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<Object>> miscServicePingAsync() {
+    public CompletableFuture<ApiResponse<Object>> pingAsync() {
         try {
-            return prepareMiscServicePingRequest().executeAsync();
+            return preparePingRequest().executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for miscServicePing.
+     * Builds the ApiCall object for ping.
      */
-    private ApiCall<ApiResponse<Object>, ApiException> prepareMiscServicePingRequest() {
+    private ApiCall<ApiResponse<Object>, ApiException> preparePingRequest() {
         return new ApiCall.Builder<ApiResponse<Object>, ApiException>()
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder

@@ -14,17 +14,17 @@ SupplyChainServiceApi supplyChainServiceApi = client.getSupplyChainServiceApi();
 
 ## Methods
 
-* [Supply Chain Service List Dependencies](../../doc/controllers/supply-chain-service.md#supply-chain-service-list-dependencies)
-* [Supply Chain Service List Repositories for Dependencies](../../doc/controllers/supply-chain-service.md#supply-chain-service-list-repositories-for-dependencies)
-* [Supply Chain Service List Lockfiles for Dependencies](../../doc/controllers/supply-chain-service.md#supply-chain-service-list-lockfiles-for-dependencies)
-* [Supply Chain Service Create Sbom Export](../../doc/controllers/supply-chain-service.md#supply-chain-service-create-sbom-export)
-* [Supply Chain Service Get Sbom Export](../../doc/controllers/supply-chain-service.md#supply-chain-service-get-sbom-export)
+* [List Dependencies](../../doc/controllers/supply-chain-service.md#list-dependencies)
+* [List Repositories for Dependencies](../../doc/controllers/supply-chain-service.md#list-repositories-for-dependencies)
+* [List Lockfiles for Dependencies](../../doc/controllers/supply-chain-service.md#list-lockfiles-for-dependencies)
+* [Create Sbom Export](../../doc/controllers/supply-chain-service.md#create-sbom-export)
+* [Get Sbom Export](../../doc/controllers/supply-chain-service.md#get-sbom-export)
 
 
-# Supply Chain Service List Dependencies
+# List Dependencies
 
 ```java
-CompletableFuture<ApiResponse<ListDependenciesResponse>> supplyChainServiceListDependenciesAsync(
+CompletableFuture<ApiResponse<ListDependenciesResponse>> listDependenciesAsync(
     final String deploymentId,
     final ListDependenciesRequest body)
 ```
@@ -56,7 +56,7 @@ ListDependenciesRequest body = new ListDependenciesRequest.Builder(
 .pageSize(1000L)
 .build();
 
-supplyChainServiceApi.supplyChainServiceListDependenciesAsync(deploymentId, body).thenAccept(result -> {
+supplyChainServiceApi.listDependenciesAsync(deploymentId, body).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {
@@ -67,10 +67,10 @@ supplyChainServiceApi.supplyChainServiceListDependenciesAsync(deploymentId, body
 ```
 
 
-# Supply Chain Service List Repositories for Dependencies
+# List Repositories for Dependencies
 
 ```java
-CompletableFuture<ApiResponse<ListRepositoriesForDependenciesResponse>> supplyChainServiceListRepositoriesForDependenciesAsync(
+CompletableFuture<ApiResponse<ListRepositoriesForDependenciesResponse>> listRepositoriesForDependenciesAsync(
     final String deploymentId,
     final ListRepositoriesForDependenciesRequest body)
 ```
@@ -102,7 +102,7 @@ ListRepositoriesForDependenciesRequest body = new ListRepositoriesForDependencie
 .pageSize(100L)
 .build();
 
-supplyChainServiceApi.supplyChainServiceListRepositoriesForDependenciesAsync(deploymentId, body).thenAccept(result -> {
+supplyChainServiceApi.listRepositoriesForDependenciesAsync(deploymentId, body).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {
@@ -113,10 +113,10 @@ supplyChainServiceApi.supplyChainServiceListRepositoriesForDependenciesAsync(dep
 ```
 
 
-# Supply Chain Service List Lockfiles for Dependencies
+# List Lockfiles for Dependencies
 
 ```java
-CompletableFuture<ApiResponse<ListLockfilesForDependenciesResponse>> supplyChainServiceListLockfilesForDependenciesAsync(
+CompletableFuture<ApiResponse<ListLockfilesForDependenciesResponse>> listLockfilesForDependenciesAsync(
     final String deploymentId,
     final String repositoryId,
     final ListLockfilesForDependenciesRequest body)
@@ -152,7 +152,7 @@ ListLockfilesForDependenciesRequest body = new ListLockfilesForDependenciesReque
 .pageSize(100L)
 .build();
 
-supplyChainServiceApi.supplyChainServiceListLockfilesForDependenciesAsync(deploymentId, repositoryId, body).thenAccept(result -> {
+supplyChainServiceApi.listLockfilesForDependenciesAsync(deploymentId, repositoryId, body).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {
@@ -163,10 +163,10 @@ supplyChainServiceApi.supplyChainServiceListLockfilesForDependenciesAsync(deploy
 ```
 
 
-# Supply Chain Service Create Sbom Export
+# Create Sbom Export
 
 ```java
-CompletableFuture<ApiResponse<CreateSbomExportResponse>> supplyChainServiceCreateSbomExportAsync(
+CompletableFuture<ApiResponse<CreateSbomExportResponse>> createSbomExportAsync(
     final String deploymentId,
     final CreateSbomExportRequest body)
 ```
@@ -201,7 +201,7 @@ CreateSbomExportRequest body = new CreateSbomExportRequest.Builder(
 .sbomOutputFormat(SbomOutputFormat.SBOM_OUTPUT_FORMAT_JSON)
 .build();
 
-supplyChainServiceApi.supplyChainServiceCreateSbomExportAsync(deploymentId, body).thenAccept(result -> {
+supplyChainServiceApi.createSbomExportAsync(deploymentId, body).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {
@@ -212,10 +212,10 @@ supplyChainServiceApi.supplyChainServiceCreateSbomExportAsync(deploymentId, body
 ```
 
 
-# Supply Chain Service Get Sbom Export
+# Get Sbom Export
 
 ```java
-CompletableFuture<ApiResponse<GetSbomExportResponse>> supplyChainServiceGetSbomExportAsync(
+CompletableFuture<ApiResponse<GetSbomExportResponse>> getSbomExportAsync(
     final String deploymentId,
     final String taskToken)
 ```
@@ -243,7 +243,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 String deploymentId = "123";
 String taskToken = "taskToken2";
 
-supplyChainServiceApi.supplyChainServiceGetSbomExportAsync(deploymentId, taskToken).thenAccept(result -> {
+supplyChainServiceApi.getSbomExportAsync(deploymentId, taskToken).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {

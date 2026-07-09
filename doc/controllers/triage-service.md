@@ -11,12 +11,12 @@ TriageServiceApi triageServiceApi = client.getTriageServiceApi();
 `TriageServiceApi`
 
 
-# Triage Service Bulk Triage
+# Bulk Triage
 
 Bulk triage your findings. You can select the findings to triage by passing in a list of finding IDs as issue_ids, or by passing in filter query parameters. You must specify the issue_type of the findings you want to bulk triage. One of new_triage_state or new_note is required. If specifying a new_triage_reason, you must also use new_triage_state=ignored. Some filters only apply for findings associated with a given product.
 
 ```java
-CompletableFuture<ApiResponse<BulkTriageResponse>> triageServiceBulkTriageAsync(
+CompletableFuture<ApiResponse<BulkTriageResponse>> bulkTriageAsync(
     final String deploymentSlug,
     final BulkTriageRequest body)
 ```
@@ -100,7 +100,7 @@ BulkTriageRequest body = new BulkTriageRequest.Builder(
 .status(Status1.OPEN)
 .build();
 
-triageServiceApi.triageServiceBulkTriageAsync(deploymentSlug, body).thenAccept(result -> {
+triageServiceApi.bulkTriageAsync(deploymentSlug, body).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {

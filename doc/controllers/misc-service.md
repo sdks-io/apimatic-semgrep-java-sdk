@@ -12,11 +12,11 @@ MiscServiceApi miscServiceApi = client.getMiscServiceApi();
 
 ## Methods
 
-* [Misc Service Get Bootstrap Sms Vpc](../../doc/controllers/misc-service.md#misc-service-get-bootstrap-sms-vpc)
-* [Misc Service Ping](../../doc/controllers/misc-service.md#misc-service-ping)
+* [Get Bootstrap Sms Vpc](../../doc/controllers/misc-service.md#get-bootstrap-sms-vpc)
+* [Ping](../../doc/controllers/misc-service.md#ping)
 
 
-# Misc Service Get Bootstrap Sms Vpc
+# Get Bootstrap Sms Vpc
 
 VPC support for Managed Scans is in private beta.
 
@@ -30,7 +30,7 @@ See the original AWS cloudformation template format at https://docs.aws.amazon.c
 :information_source: **Note** This endpoint does not require authentication.
 
 ```java
-CompletableFuture<ApiResponse<ProtosOpenapiV1GetBootstrapSmsVpcResponse>> miscServiceGetBootstrapSmsVpcAsync()
+CompletableFuture<ApiResponse<ProtosOpenapiV1GetBootstrapSmsVpcResponse>> getBootstrapSmsVpcAsync()
 ```
 
 ## Response Type
@@ -42,7 +42,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ## Example Usage
 
 ```java
-miscServiceApi.miscServiceGetBootstrapSmsVpcAsync().thenAccept(result -> {
+miscServiceApi.getBootstrapSmsVpcAsync().thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {
@@ -53,14 +53,14 @@ miscServiceApi.miscServiceGetBootstrapSmsVpcAsync().thenAccept(result -> {
 ```
 
 
-# Misc Service Ping
+# Ping
 
 Use to ping the server and assert liveness.
 
 :information_source: **Note** This endpoint does not require authentication.
 
 ```java
-CompletableFuture<ApiResponse<Object>> miscServicePingAsync()
+CompletableFuture<ApiResponse<Object>> pingAsync()
 ```
 
 ## Response Type
@@ -72,7 +72,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ## Example Usage
 
 ```java
-miscServiceApi.miscServicePingAsync().thenAccept(result -> {
+miscServiceApi.pingAsync().thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {

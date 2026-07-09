@@ -45,10 +45,10 @@ public final class TriageServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<BulkTriageResponse> triageServiceBulkTriage(
+    public ApiResponse<BulkTriageResponse> bulkTriage(
             final String deploymentSlug,
             final BulkTriageRequest body) throws ApiException, IOException {
-        return prepareTriageServiceBulkTriageRequest(deploymentSlug, body).execute();
+        return prepareBulkTriageRequest(deploymentSlug, body).execute();
     }
 
     /**
@@ -61,20 +61,20 @@ public final class TriageServiceApi extends BaseApi {
      * @param  body  Required parameter:
      * @return    Returns the BulkTriageResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<BulkTriageResponse>> triageServiceBulkTriageAsync(
+    public CompletableFuture<ApiResponse<BulkTriageResponse>> bulkTriageAsync(
             final String deploymentSlug,
             final BulkTriageRequest body) {
         try {
-            return prepareTriageServiceBulkTriageRequest(deploymentSlug, body).executeAsync();
+            return prepareBulkTriageRequest(deploymentSlug, body).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for triageServiceBulkTriage.
+     * Builds the ApiCall object for bulkTriage.
      */
-    private ApiCall<ApiResponse<BulkTriageResponse>, ApiException> prepareTriageServiceBulkTriageRequest(
+    private ApiCall<ApiResponse<BulkTriageResponse>, ApiException> prepareBulkTriageRequest(
             final String deploymentSlug,
             final BulkTriageRequest body) {
         return new ApiCall.Builder<ApiResponse<BulkTriageResponse>, ApiException>()

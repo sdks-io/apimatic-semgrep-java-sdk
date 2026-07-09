@@ -74,7 +74,7 @@ public final class FindingsServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<ApiV1DeploymentsFindingsResponse> findingsServiceListFindings(
+    public ApiResponse<ApiV1DeploymentsFindingsResponse> listFindings(
             final String deploymentSlug,
             final IssueType2 issueType,
             final Double since,
@@ -97,10 +97,10 @@ public final class FindingsServiceApi extends BaseApi {
             final Transitivities2 transitivities,
             final Boolean isMalicious,
             final ClickToFixPrState clickToFixPrState) throws ApiException, IOException {
-        return prepareFindingsServiceListFindingsRequest(deploymentSlug, issueType, since, page,
-                dedup, pageSize, repos, repositoryIds, status, triageReasons, severities, ref,
-                policies, rules, categories, confidence, autotriageVerdict, componentTags,
-                exposures, transitivities, isMalicious, clickToFixPrState).execute();
+        return prepareListFindingsRequest(deploymentSlug, issueType, since, page, dedup, pageSize,
+                repos, repositoryIds, status, triageReasons, severities, ref, policies, rules,
+                categories, confidence, autotriageVerdict, componentTags, exposures, transitivities,
+                isMalicious, clickToFixPrState).execute();
     }
 
     /**
@@ -133,7 +133,7 @@ public final class FindingsServiceApi extends BaseApi {
      * @param  clickToFixPrState  Optional parameter: Example:
      * @return    Returns the ApiV1DeploymentsFindingsResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<ApiV1DeploymentsFindingsResponse>> findingsServiceListFindingsAsync(
+    public CompletableFuture<ApiResponse<ApiV1DeploymentsFindingsResponse>> listFindingsAsync(
             final String deploymentSlug,
             final IssueType2 issueType,
             final Double since,
@@ -157,8 +157,8 @@ public final class FindingsServiceApi extends BaseApi {
             final Boolean isMalicious,
             final ClickToFixPrState clickToFixPrState) {
         try {
-            return prepareFindingsServiceListFindingsRequest(deploymentSlug, issueType, since, page, dedup,
-            pageSize, repos, repositoryIds, status, triageReasons, severities, ref, policies, rules,
+            return prepareListFindingsRequest(deploymentSlug, issueType, since, page, dedup, pageSize,
+            repos, repositoryIds, status, triageReasons, severities, ref, policies, rules,
             categories, confidence, autotriageVerdict, componentTags, exposures, transitivities,
             isMalicious, clickToFixPrState).executeAsync();
         } catch (Exception e) {
@@ -167,9 +167,9 @@ public final class FindingsServiceApi extends BaseApi {
     }
 
     /**
-     * Builds the ApiCall object for findingsServiceListFindings.
+     * Builds the ApiCall object for listFindings.
      */
-    private ApiCall<ApiResponse<ApiV1DeploymentsFindingsResponse>, ApiException> prepareFindingsServiceListFindingsRequest(
+    private ApiCall<ApiResponse<ApiV1DeploymentsFindingsResponse>, ApiException> prepareListFindingsRequest(
             final String deploymentSlug,
             final IssueType2 issueType,
             final Double since,

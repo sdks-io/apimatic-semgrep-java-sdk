@@ -46,10 +46,10 @@ public final class TicketingServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<ProtosOpenapiV1DeleteTicketResponse> ticketingServiceDeleteTicket(
+    public ApiResponse<ProtosOpenapiV1DeleteTicketResponse> deleteTicket(
             final String deploymentId,
             final long externalTicketId) throws ApiException, IOException {
-        return prepareTicketingServiceDeleteTicketRequest(deploymentId, externalTicketId).execute();
+        return prepareDeleteTicketRequest(deploymentId, externalTicketId).execute();
     }
 
     /**
@@ -58,21 +58,20 @@ public final class TicketingServiceApi extends BaseApi {
      * @param  externalTicketId  Required parameter:
      * @return    Returns the ProtosOpenapiV1DeleteTicketResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<ProtosOpenapiV1DeleteTicketResponse>> ticketingServiceDeleteTicketAsync(
+    public CompletableFuture<ApiResponse<ProtosOpenapiV1DeleteTicketResponse>> deleteTicketAsync(
             final String deploymentId,
             final long externalTicketId) {
         try {
-            return prepareTicketingServiceDeleteTicketRequest(deploymentId,
-            externalTicketId).executeAsync();
+            return prepareDeleteTicketRequest(deploymentId, externalTicketId).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for ticketingServiceDeleteTicket.
+     * Builds the ApiCall object for deleteTicket.
      */
-    private ApiCall<ApiResponse<ProtosOpenapiV1DeleteTicketResponse>, ApiException> prepareTicketingServiceDeleteTicketRequest(
+    private ApiCall<ApiResponse<ProtosOpenapiV1DeleteTicketResponse>, ApiException> prepareDeleteTicketRequest(
             final String deploymentId,
             final long externalTicketId) {
         return new ApiCall.Builder<ApiResponse<ProtosOpenapiV1DeleteTicketResponse>, ApiException>()
@@ -108,10 +107,10 @@ public final class TicketingServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<ProtosOpenapiV1LinkTicketResponse> ticketingServiceLinkTicket(
+    public ApiResponse<ProtosOpenapiV1LinkTicketResponse> linkTicket(
             final String deploymentId,
             final LinkTicketRequest body) throws ApiException, IOException {
-        return prepareTicketingServiceLinkTicketRequest(deploymentId, body).execute();
+        return prepareLinkTicketRequest(deploymentId, body).execute();
     }
 
     /**
@@ -123,20 +122,20 @@ public final class TicketingServiceApi extends BaseApi {
      * @param  body  Required parameter:
      * @return    Returns the ProtosOpenapiV1LinkTicketResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<ProtosOpenapiV1LinkTicketResponse>> ticketingServiceLinkTicketAsync(
+    public CompletableFuture<ApiResponse<ProtosOpenapiV1LinkTicketResponse>> linkTicketAsync(
             final String deploymentId,
             final LinkTicketRequest body) {
         try {
-            return prepareTicketingServiceLinkTicketRequest(deploymentId, body).executeAsync();
+            return prepareLinkTicketRequest(deploymentId, body).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for ticketingServiceLinkTicket.
+     * Builds the ApiCall object for linkTicket.
      */
-    private ApiCall<ApiResponse<ProtosOpenapiV1LinkTicketResponse>, ApiException> prepareTicketingServiceLinkTicketRequest(
+    private ApiCall<ApiResponse<ProtosOpenapiV1LinkTicketResponse>, ApiException> prepareLinkTicketRequest(
             final String deploymentId,
             final LinkTicketRequest body) {
         return new ApiCall.Builder<ApiResponse<ProtosOpenapiV1LinkTicketResponse>, ApiException>()
@@ -173,10 +172,10 @@ public final class TicketingServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<ProtosOpenapiV1UnlinkTicketResponse> ticketingServiceUnlinkTicket(
+    public ApiResponse<ProtosOpenapiV1UnlinkTicketResponse> unlinkTicket(
             final String deploymentId,
             final UnlinkTicketRequest body) throws ApiException, IOException {
-        return prepareTicketingServiceUnlinkTicketRequest(deploymentId, body).execute();
+        return prepareUnlinkTicketRequest(deploymentId, body).execute();
     }
 
     /**
@@ -187,20 +186,20 @@ public final class TicketingServiceApi extends BaseApi {
      * @param  body  Required parameter:
      * @return    Returns the ProtosOpenapiV1UnlinkTicketResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<ProtosOpenapiV1UnlinkTicketResponse>> ticketingServiceUnlinkTicketAsync(
+    public CompletableFuture<ApiResponse<ProtosOpenapiV1UnlinkTicketResponse>> unlinkTicketAsync(
             final String deploymentId,
             final UnlinkTicketRequest body) {
         try {
-            return prepareTicketingServiceUnlinkTicketRequest(deploymentId, body).executeAsync();
+            return prepareUnlinkTicketRequest(deploymentId, body).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for ticketingServiceUnlinkTicket.
+     * Builds the ApiCall object for unlinkTicket.
      */
-    private ApiCall<ApiResponse<ProtosOpenapiV1UnlinkTicketResponse>, ApiException> prepareTicketingServiceUnlinkTicketRequest(
+    private ApiCall<ApiResponse<ProtosOpenapiV1UnlinkTicketResponse>, ApiException> prepareUnlinkTicketRequest(
             final String deploymentId,
             final UnlinkTicketRequest body) {
         return new ApiCall.Builder<ApiResponse<ProtosOpenapiV1UnlinkTicketResponse>, ApiException>()
@@ -248,10 +247,10 @@ public final class TicketingServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<ProtosOpenapiV1CreateTicketResponse> ticketingServiceCreateTicket(
+    public ApiResponse<ProtosOpenapiV1CreateTicketResponse> createTicket(
             final String deploymentSlug,
             final CreateTicketRequest body) throws ApiException, IOException {
-        return prepareTicketingServiceCreateTicketRequest(deploymentSlug, body).execute();
+        return prepareCreateTicketRequest(deploymentSlug, body).execute();
     }
 
     /**
@@ -273,20 +272,20 @@ public final class TicketingServiceApi extends BaseApi {
      * @param  body  Required parameter:
      * @return    Returns the ProtosOpenapiV1CreateTicketResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<ProtosOpenapiV1CreateTicketResponse>> ticketingServiceCreateTicketAsync(
+    public CompletableFuture<ApiResponse<ProtosOpenapiV1CreateTicketResponse>> createTicketAsync(
             final String deploymentSlug,
             final CreateTicketRequest body) {
         try {
-            return prepareTicketingServiceCreateTicketRequest(deploymentSlug, body).executeAsync();
+            return prepareCreateTicketRequest(deploymentSlug, body).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for ticketingServiceCreateTicket.
+     * Builds the ApiCall object for createTicket.
      */
-    private ApiCall<ApiResponse<ProtosOpenapiV1CreateTicketResponse>, ApiException> prepareTicketingServiceCreateTicketRequest(
+    private ApiCall<ApiResponse<ProtosOpenapiV1CreateTicketResponse>, ApiException> prepareCreateTicketRequest(
             final String deploymentSlug,
             final CreateTicketRequest body) {
         return new ApiCall.Builder<ApiResponse<ProtosOpenapiV1CreateTicketResponse>, ApiException>()

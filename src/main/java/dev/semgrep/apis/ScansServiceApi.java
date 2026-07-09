@@ -43,10 +43,10 @@ public final class ScansServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<ProtosOpenapiV1GetScanResponse> scansServiceGetScan(
+    public ApiResponse<ProtosOpenapiV1GetScanResponse> getScan(
             final String deploymentId,
             final String scanId) throws ApiException, IOException {
-        return prepareScansServiceGetScanRequest(deploymentId, scanId).execute();
+        return prepareGetScanRequest(deploymentId, scanId).execute();
     }
 
     /**
@@ -56,20 +56,20 @@ public final class ScansServiceApi extends BaseApi {
      * @param  scanId  Required parameter:
      * @return    Returns the ProtosOpenapiV1GetScanResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<ProtosOpenapiV1GetScanResponse>> scansServiceGetScanAsync(
+    public CompletableFuture<ApiResponse<ProtosOpenapiV1GetScanResponse>> getScanAsync(
             final String deploymentId,
             final String scanId) {
         try {
-            return prepareScansServiceGetScanRequest(deploymentId, scanId).executeAsync();
+            return prepareGetScanRequest(deploymentId, scanId).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for scansServiceGetScan.
+     * Builds the ApiCall object for getScan.
      */
-    private ApiCall<ApiResponse<ProtosOpenapiV1GetScanResponse>, ApiException> prepareScansServiceGetScanRequest(
+    private ApiCall<ApiResponse<ProtosOpenapiV1GetScanResponse>, ApiException> prepareGetScanRequest(
             final String deploymentId,
             final String scanId) {
         return new ApiCall.Builder<ApiResponse<ProtosOpenapiV1GetScanResponse>, ApiException>()
@@ -102,10 +102,10 @@ public final class ScansServiceApi extends BaseApi {
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public ApiResponse<ProtosOpenapiV1SearchScansResponse> scansServiceSearchScans(
+    public ApiResponse<ProtosOpenapiV1SearchScansResponse> searchScans(
             final String deploymentId,
             final SearchScansRequest body) throws ApiException, IOException {
-        return prepareScansServiceSearchScansRequest(deploymentId, body).execute();
+        return prepareSearchScansRequest(deploymentId, body).execute();
     }
 
     /**
@@ -114,20 +114,20 @@ public final class ScansServiceApi extends BaseApi {
      * @param  body  Required parameter:
      * @return    Returns the ProtosOpenapiV1SearchScansResponse wrapped in ApiResponse response from the API call
      */
-    public CompletableFuture<ApiResponse<ProtosOpenapiV1SearchScansResponse>> scansServiceSearchScansAsync(
+    public CompletableFuture<ApiResponse<ProtosOpenapiV1SearchScansResponse>> searchScansAsync(
             final String deploymentId,
             final SearchScansRequest body) {
         try {
-            return prepareScansServiceSearchScansRequest(deploymentId, body).executeAsync();
+            return prepareSearchScansRequest(deploymentId, body).executeAsync();
         } catch (Exception e) {
             throw new CompletionException(e);
         }
     }
 
     /**
-     * Builds the ApiCall object for scansServiceSearchScans.
+     * Builds the ApiCall object for searchScans.
      */
-    private ApiCall<ApiResponse<ProtosOpenapiV1SearchScansResponse>, ApiException> prepareScansServiceSearchScansRequest(
+    private ApiCall<ApiResponse<ProtosOpenapiV1SearchScansResponse>, ApiException> prepareSearchScansRequest(
             final String deploymentId,
             final SearchScansRequest body) {
         return new ApiCall.Builder<ApiResponse<ProtosOpenapiV1SearchScansResponse>, ApiException>()

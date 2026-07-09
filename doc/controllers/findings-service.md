@@ -11,12 +11,12 @@ FindingsServiceApi findingsServiceApi = client.getFindingsServiceApi();
 `FindingsServiceApi`
 
 
-# Findings Service List Findings
+# List Findings
 
 Request the list of code, supply chain, or AI-powered scan findings in an organization, paginated in pages of 100 entries and limited by the `since` timestamp. Findings are returned by `relevant_since` descending (see `since` in the Query Parameters list). Examples: List SAST findings with pagination, List SCA findings since timestamp, List AI-powered scan findings, List findings with filters.
 
 ```java
-CompletableFuture<ApiResponse<ApiV1DeploymentsFindingsResponse>> findingsServiceListFindingsAsync(
+CompletableFuture<ApiResponse<ApiV1DeploymentsFindingsResponse>> listFindingsAsync(
     final String deploymentSlug,
     final IssueType2 issueType,
     final Double since,
@@ -126,7 +126,7 @@ List<String> componentTags = Arrays.asList(
 
 Boolean isMalicious = true;
 
-findingsServiceApi.findingsServiceListFindingsAsync(deploymentSlug, issueType, since, page, dedup, pageSize, repos, repositoryIds, status, null, null, ref, policies, rules, categories, confidence, autotriageVerdict, componentTags, null, null, isMalicious, null).thenAccept(result -> {
+findingsServiceApi.listFindingsAsync(deploymentSlug, issueType, since, page, dedup, pageSize, repos, repositoryIds, status, null, null, ref, policies, rules, categories, confidence, autotriageVerdict, componentTags, null, null, isMalicious, null).thenAccept(result -> {
     // TODO success callback handler
     System.out.println(result);
 }).exceptionally(exception -> {
